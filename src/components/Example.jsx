@@ -1,19 +1,21 @@
-import { useMemo } from 'react';
-import {
-    MaterialReactTable,
-    useMaterialReactTable,
-} from 'material-react-table';
+import  { useMemo, useState } from 'react';
+import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
+
 import { data } from '../constants/data';
+import Modal from './Modal';
+
 
 
 const Example = () => {
+    const [selectedRowData, setSelectedRowData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const columns = useMemo(
         () => [
             {
                 accessorKey: 'numberOfProjects',
                 header: 'No. of Project',
             },
-            
             {
                 accessorKey: 'projectManager',
                 header: 'Project Manager',
@@ -36,7 +38,7 @@ const Example = () => {
             },
             {
                 accessorKey: 'projectCompletionRate',
-                header: 'Project Completioon Rate',
+                header: 'Project Completion Rate',
             },
         ],
         [],
@@ -46,17 +48,45 @@ const Example = () => {
         columns,
         data,
         enableColumnOrdering: true,
-        enableColumnActions:false,
+        enableColumnActions: false,
         enableDensityToggle: false,
-        enableGlobalFilter:false,
-        enableGlobalFilterModes:false,
-        manualFiltering:false,
-        enableFullScreenToggle:false,
-        enableFilters:false,
-
+        enableGlobalFilter: false,
+        enableGlobalFilterModes: false,
+        manualFiltering: false,
+        // enableFullScreenToggle: false,
+        enableFilters: false,
+        muiTableBodyRowProps: ({ row }) => ({
+            onClick: () => handleRowClick(row.original),
+            sx: {
+                cursor: 'pointer',
+            },
+        }),
     });
 
-    return <MaterialReactTable table={table} />;
+    const handleRowClick = (rowData) => {
+        setSelectedRowData(rowData);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedRowData(null);
+        setIsModalOpen(false);
+    };
+
+    return (
+        <div>
+            <MaterialReactTable table={table} />
+
+           
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel="Row Details"
+                selectedRowData={selectedRowData}
+                handleCloseModal={handleCloseModal}
+            />
+        </div>
+    );
 };
 
 export default Example;

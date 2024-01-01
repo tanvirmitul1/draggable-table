@@ -23,8 +23,19 @@ const MonthSelector = () => {
     };
 
     return (
-        <div style={{ position: 'relative', zIndex: 1000,display:"flex" ,gap:"10px" }}>
-            <button onClick={() => setStartDate(new Date())}>Show Month</button>
+        <div style={{ position: 'relative', zIndex: 100,display:"flex" ,gap:"10px" }}>
+            <button onClick={() => setStartDate(new Date())}
+                style={{
+                    padding: '10px',
+                    fontSize: '16px',
+                    backgroundColor: '#3498db',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    borderRadius: '5px',
+                    border: 'none',
+                    outline: 'none',
+                    transition: 'background-color 0.5s ease-n',
+                }}>Show Month</button>
             {startDate && (
                 <DatePicker
                     selected={startDate}
