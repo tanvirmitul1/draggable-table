@@ -5,6 +5,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 const MonthSelector = () => {
     const [startDate, setStartDate] = useState(null);
     const [selectedMonth, setSelectedMonth] = useState('');
+    const [hovered, setHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setHovered(false);
+    };
 
     const handleMonthChange = (date) => {
         if (date) {
@@ -24,17 +33,23 @@ const MonthSelector = () => {
 
     return (
         <div style={{  zIndex: 100,display:"flex" ,gap:"10px" }}>
-            <button onClick={() => setStartDate(new Date())}
+            <button onClick={() => setStartDate(new Date())
+            }
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 style={{
                     padding: '10px',
                     fontSize: '16px',
-                    backgroundColor: '#3498db',
-                    color: '#fff',
+                    backgroundColor: hovered ? 'white' : '#387E85',
+                    color: hovered ? '#387E85':'white',
                     cursor: 'pointer',
+                    border:`1px solid ${hovered ? '#387E85' : 'none'}` ,
+                   outline:"none",
                     borderRadius: '5px',
-                    border: 'none',
-                    outline: 'none',
-                    transition: 'background-color 0.5s ease-n',
+                   
+                    transition: 'background-color 0.3s ease-in',
+                    
+
                 }}>Show Month</button>
             {startDate && (
                 <DatePicker

@@ -33,10 +33,12 @@ const PrimaryTable = () => {
                 accessorKey: 'numberOfFullyCompletedProjects',
                 header: 'No. of Fully Completed Project',
             },
-            {
+         /* {
                 accessorKey: 'numberOfCompletedProjectsWithoutAuthorization',
                 header: 'No of Completed Projects Without Authorization',
             },
+            */
+           
             {
                 accessorKey: 'projectCompletionRate',
                 header: 'Project Completion Rate',
@@ -65,8 +67,36 @@ const PrimaryTable = () => {
             onClick: () => handleRowClick(row.original),
             sx: {
                 cursor: 'pointer',
+                
             },
         }),
+
+        muiTableBodyProps: {
+            sx: {
+                
+                '& tr:nth-of-type(odd) > td': {
+                    backgroundColor: '#DAEFF1',
+                    
+                },
+                '& tr:nth-of-type(even) > td': {
+                    backgroundColor: '#FFFFFF',
+                },
+                
+               
+                
+            },
+        },
+     
+       muiTableHeadCellProps: {
+        sx: {
+               backgroundColor: '#327A81',
+               color: '#FFFFFF',
+               
+              
+            
+        }
+       },
+        
     });
 
     const handleRowClick = (rowData) => {

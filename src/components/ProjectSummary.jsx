@@ -13,9 +13,13 @@ const ProjectSummary = () => {
     }).format(totalProjectValue);
 
     return (
-        <div >
-            <p className="font-roboto">Total Projects: {totalProjects}</p>
-            <p>Total Project Value: {formattedTotalProjectValue}</p>
+        <div style={{ fontWeight: "bold",fontSize:'30px' }} >
+            <div className="font-roboto " 
+            ><span
+                    style={{ color: "#0B4D54" }}>Total Projects:</span> <span
+                    style={{ color: "#387E85" }}>{totalProjects}</span></div>
+            <div><span
+                style={{ color: "#0B4D54" }}>Total Project Value:</span><span style={{ color: "#387E85" }}> {formattedTotalProjectValue}</span></div>
         </div>
     );
 };

@@ -63,6 +63,30 @@ const SecondaryTable = ({ selectedRowData }) => {
         manualFiltering: false,
         
         enableFilters: false,
+        muiTableBodyProps: {
+            sx: {
+
+                '& tr:nth-of-type(odd) > td': {
+                    backgroundColor: '#DAEFF1',
+                },
+                '& tr:nth-of-type(even) > td': {
+                    backgroundColor: '#FFFFFF',
+                },
+
+
+
+            },
+        },
+
+        muiTableHeadCellProps: {
+            sx: {
+                backgroundColor: '#327A81',
+                color: '#FFFFFF',
+
+
+
+            }
+        },
        
     });
 

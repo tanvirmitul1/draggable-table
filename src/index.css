@@ -9,3 +9,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+  --primary-color: #387E85; /* Initial primary color */
+}
+
+body{
+
+  background-color: #91CED4;
+}
