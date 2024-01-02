@@ -23,7 +23,7 @@ const MonthSelector = () => {
     };
 
     return (
-        <div style={{ position: 'relative', zIndex: 100,display:"flex" ,gap:"10px" }}>
+        <div style={{  zIndex: 100,display:"flex" ,gap:"10px" }}>
             <button onClick={() => setStartDate(new Date())}
                 style={{
                     padding: '10px',

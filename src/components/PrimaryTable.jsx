@@ -6,7 +6,7 @@ import Modal from './Modal';
 
 
 
-const Example = () => {
+const PrimaryTable = () => {
     const [selectedRowData, setSelectedRowData] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,6 +15,7 @@ const Example = () => {
             {
                 accessorKey: 'numberOfProjects',
                 header: 'No. of Project',
+                enableHiding:true,
             },
             {
                 accessorKey: 'projectManager',
@@ -40,6 +41,10 @@ const Example = () => {
                 accessorKey: 'projectCompletionRate',
                 header: 'Project Completion Rate',
             },
+            {
+                accessorKey: 'projectsDetails',
+                header: 'Project Details',
+            },
         ],
         [],
     );
@@ -47,6 +52,7 @@ const Example = () => {
     const table = useMaterialReactTable({
         columns,
         data,
+        initialState:{columnVisibility:{projectsDetails:false}},
         enableColumnOrdering: true,
         enableColumnActions: false,
         enableDensityToggle: false,
@@ -74,7 +80,7 @@ const Example = () => {
     };
 
     return (
-        <div>
+        <div >
             <MaterialReactTable table={table} />
 
            
@@ -89,4 +95,4 @@ const Example = () => {
     );
 };
 
-export default Example;
+export default PrimaryTable;

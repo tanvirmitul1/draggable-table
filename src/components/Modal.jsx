@@ -1,56 +1,46 @@
 /* eslint-disable react/prop-types */
 
 import ReactModal from 'react-modal';
+import SecondaryTable from './modal/SecondaryTable';
+import Header from './modal/Header';
+import Managerdetails from './modal/ManagerDetails';
 
 const Modal = ({ isOpen, onRequestClose, contentLabel, selectedRowData, handleCloseModal }) => {
+    console.log(selectedRowData);
     return (
         <ReactModal
             style={{
                 overlay: {
                     zIndex: 1000,
+                    maxWidth: '80%',
+                    maxHeight: '80%',
+                    margin: 'auto auto',
+                    padding: '50px',
                 },
                 content: {
                     zIndex: 1001,
+                    maxWidth: '70%',
+                    maxHeight: '100%',
+                    margin: 'auto auto',
+                    padding: '50px',
                 },
             }}
             isOpen={isOpen}
             onRequestClose={onRequestClose}
             contentLabel={contentLabel}
+            
         >
-            <div>
-                {selectedRowData && (
+            {selectedRowData && (
+                <div>
                     <div>
-                        <h2>{`Project Manager: ${selectedRowData.projectManager}`}</h2>
-                        <p>{`Total Projects: ${selectedRowData.numberOfProjects}`}</p>
-                        <p>{`Total Project Value: ${selectedRowData.totalProjectValue}`}</p>
-                        <hr />
-                        <h3>Row Details</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                            {Object.entries(selectedRowData).map(([key, value]) => (
-                                <div key={key} style={{ marginRight: '10px', marginBottom: '10px' }}>
-                                    <button
-                                        style={{
-                                            padding: '8px 12px',
-                                            background: 'gray',
-                                            color: 'white',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                            transition: 'background 0.3s',
-                                        }}
-                                        onMouseOver={(e) => e.target.style.background = '#45a049'}
-                                        onMouseOut={(e) => e.target.style.background = '#4CAF50'}
-                                    >
-                                        {`${key}:${value}`}
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
+                        <Header selectedRowData={selectedRowData} />
+                        
+                        <Managerdetails selectedRowData={selectedRowData} />
                     </div>
-
-                )}
-                <button onClick={handleCloseModal}>Close</button>
-            </div>
+                    <button onClick={handleCloseModal}>Close</button>
+                    <SecondaryTable selectedRowData={selectedRowData} />
+                </div>
+            )}
         </ReactModal>
     );
 };
