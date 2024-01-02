@@ -41,7 +41,7 @@ const SecondaryTable = ({ selectedRowData }) => {
                 accessorKey: 'freelanceComMessagePageLink',
                 header: 'Freelancer.com Message Page Link',
                 Cell: ({ cell }) => (
-                    <a href={cell.row.original.freelanceComMessagePageLink} style={{ backgroundColor: "gray", textDecoration: 'none', color: 'white',padding:"15px" }}>
+                    <a href={cell.row.original.freelanceComMessagePageLink} style={{ backgroundColor: "#387E85", textDecoration: 'none', color: 'white',padding:"15px" }}>
                         {"Visit Link"}
                     </a>
                 ),

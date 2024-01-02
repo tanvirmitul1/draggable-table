@@ -1,27 +1,42 @@
 /* eslint-disable react/prop-types */
 
 const Managerdetails = ({selectedRowData}) => {
+ 
   return (
     <div>
-          <h3>Row Details</h3>
+          
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
               {Object.entries(selectedRowData).map(([key, value]) => (
                   <div key={key} style={{ marginRight: '10px', marginBottom: '10px' }}>
                       {key !== "projectsDetails" ? (
-                          <button
+                          <div
+                             
                               style={{
-                                  padding: '8px 12px',
-                                  background: 'gray',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
+                                  padding: '10px',
+                                  fontSize: '18px',
+                                  backgroundColor:'#387E85',
+                                  color:'white',
                                   cursor: 'pointer',
-                                  transition: 'background 0.3s',
+                                
+                                  outline: "none",
+                                  border: "none",
+                                  width: '180px',
+                                  height: '100px',
+                                  transition: 'background-color 0.3s ease-in',
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                 
+                                  
+                                 
+
+
                               }}
                           
                           >
-                              {`${key}:${value}`}
-                          </button>
+                              <span style={{ wordWrap: "break-word",  }}>{`${key}:`}</span>
+                              <span style={{margin:"0 auto", fontSize:"20px"}} >{`${value}`}</span>
+                              
+                          </div>
                       ) : null}
                   </div>
               ))}

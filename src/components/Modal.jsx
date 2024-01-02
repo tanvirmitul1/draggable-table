@@ -5,6 +5,12 @@
  * @format
  */
 
+/**
+ * eslint-disable react/prop-types
+ *
+ * @format
+ */
+import { IoMdClose } from "react-icons/io";
 import ReactModal from "react-modal";
 import SecondaryTable from "./modal/SecondaryTable";
 import Header from "./modal/Header";
@@ -25,14 +31,14 @@ const Modal = ({
         overlay: {
           zIndex: 1000,
           backgroundColor: "rgba(0, 0, 0, 0.5)",
-      
+
           margin: "auto auto",
           padding: "50px",
         },
         content: {
           zIndex: 1001,
           maxWidth: "80%",
-            borderRadius: "20px",
+          borderRadius: "20px",
           margin: "auto auto",
           padding: "50px",
         },
@@ -41,21 +47,30 @@ const Modal = ({
       onRequestClose={onRequestClose}
       contentLabel={contentLabel}>
       {selectedRowData && (
-        <div>
-          <div>
-            <div>
-              <Header selectedRowData={selectedRowData} />
+        <div style={{ display: "flex", flexDirection: "column", gap:"20px" }}>
+          <div style={{ margin: "0 auto" }}>
+            <Header selectedRowData={selectedRowData} />
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              right: "15px",
+              top: "15px",
+              backgroundColor: "#387E85",
+              padding: "6px 6px 2px 6px",
+              cursor: "pointer",
+            }}>
+            <div onClick={handleCloseModal}>
+              <IoMdClose color='white' />
             </div>
+          </div>
 
-            <div>
-              <Managerdetails selectedRowData={selectedRowData} />
-            </div>
-          </div>
           <div>
-            <button onClick={handleCloseModal}>Close</button>
+            <Managerdetails selectedRowData={selectedRowData} />
           </div>
+
           <div>
-            <MonthSelector/>
+            <MonthSelector />
           </div>
           <div>
             <SecondaryTable selectedRowData={selectedRowData} />
