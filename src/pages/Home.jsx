@@ -1,4 +1,4 @@
-/** @format */
+
 
 
 import MonthSelector from "../components/MonthPicker";
@@ -7,14 +7,18 @@ import ProjectSummary from "../components/ProjectSummary";
 
 const Home = () => {
   return (
-    <div style = {{display:"flex", flexDirection:"column", maxWidth:"80%", margin:"0 auto" }}>
+    <div style = {{display:"flex", flexDirection:"column", margin:"0 auto" , padding:'40px' }}>
       <div >
 
       <ProjectSummary />
       </div>
-      <div style={{ display: "flex", flexDirection:"column", alignItems: "left" , gap:'20px'}}>
-        <MonthSelector />
-        <PrimaryTable/>
+      <div style={{ display: "flex", flexDirection:"column" , gap:'20px'}}>
+        <div>
+          <MonthSelector />
+        </div>
+       <div>
+          <PrimaryTable />
+       </div>
       </div>
     
     </div>

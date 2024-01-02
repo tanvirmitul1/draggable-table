@@ -18,8 +18,7 @@ const Managerdetails = ({selectedRowData}) => {
                                   cursor: 'pointer',
                                   transition: 'background 0.3s',
                               }}
-                              onMouseOver={(e) => e.target.style.background = '#45a049'}
-                              onMouseOut={(e) => e.target.style.background = '#4CAF50'}
+                          
                           >
                               {`${key}:${value}`}
                           </button>
