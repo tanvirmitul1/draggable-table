@@ -23,7 +23,7 @@ const MonthSelector = () => {
             const endMonth = nextMonth.toLocaleString('en-US', { month: 'long' });
             const year = date.getFullYear();
 
-            setSelectedMonth(`${startMonth} ${year} to ${endMonth} ${year}`);
+            setSelectedMonth(` 16 ${startMonth} ${year} to 16 ${endMonth} ${year}`);
         } else {
             setSelectedMonth('');
         }
