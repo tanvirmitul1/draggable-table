@@ -58,6 +58,7 @@ const MonthSelector = () => {
                     showMonthYearPicker
                     dateFormat="MM/yyyy"
                     popperPlacement="top"
+                    
                 />
             )}
             {selectedMonth && <div>{selectedMonth}</div>}
