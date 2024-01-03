@@ -1,13 +1,21 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import styles from "../styles/DatePicker.module.css";
+
 const MonthSelector = () => {
   const [startDate, setStartDate] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(true);
+  const [showCalendar, setShowCalendar] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState("");
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
 
   const handleMonthChange = (date) => {
     if (date) {
@@ -21,7 +29,7 @@ const MonthSelector = () => {
         ` ${startMonth} 15, ${year} to  ${endMonth} 15 , ${year}`
       );
 
-      setShowCalendar((prev) => !prev);
+      setShowCalendar(false);
     } else {
       setSelectedMonth("");
     }
@@ -30,36 +38,47 @@ const MonthSelector = () => {
   };
 
   const handleButtonClick = () => {
+    setShowCalendar(!showCalendar);
     setStartDate(new Date());
   };
-  const handleButton2Click = () => {
-    setShowCalendar((prev) => !prev);
-  };
-
   return (
     <div
       style={{
         display: "flex",
         gap: "10px",
+        position: "relative",
       }}
     >
-      {showCalendar ? (
-        <DatePicker
-          onClick={() => handleButtonClick()}
-          selected={startDate}
-          onChange={handleMonthChange}
-          showMonthYearPicker
-          popperPlacement="top"
-          placeholderText="Select Month"
-          className={styles.customDatepicker}
-        />
-      ) : (
-        <button
-          onClick={() => handleButton2Click()}
-          className={styles.customButton}
-        >
-          Select Month
-        </button>
+      <button
+        onClick={handleButtonClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          padding: "10px",
+          fontSize: "16px",
+          backgroundColor: hovered ? "white" : "#387E85",
+          color: hovered ? "#387E85" : "white",
+          cursor: "pointer",
+          border: `1px solid ${hovered ? "#387E85" : "none"}`,
+          outline: "none",
+          borderRadius: "5px",
+          height: "40px", // Set a fixed height for the button
+          transition: "background-color 0.3s ease-in",
+        }}
+      >
+        Show Month
+      </button>
+
+      {showCalendar && (
+        <div style={{ position: "absolute", zIndex: 10000, left: "120px" }}>
+          <DatePicker
+            selected={startDate}
+            onChange={handleMonthChange}
+            showMonthYearPicker
+            placeholderText="Select a weekday"
+            inline
+          />
+        </div>
       )}
       {selectedMonth && (
         <div
