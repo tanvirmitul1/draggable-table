@@ -9,6 +9,7 @@ import Modal from "./Modal";
 
 const PrimaryTable = () => {
   const [selectedRowData, setSelectedRowData] = useState(null);
+  const [selectedCellData, setSelectedCellData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const columns = useMemo(
@@ -88,7 +89,19 @@ const PrimaryTable = () => {
         color: "#FFFFFF",
       },
     },
+
+    muiTableBodyCellProps: ({ row }) => ({
+      onClick: () => handleCellClick(row.original),
+      sx: {
+        cursor: "pointer",
+      },
+    }),
   });
+
+  const handleCellClick = (cellData) => {
+    setSelectedCellData(cellData);
+    setIsModalOpen(true);
+  };
 
   const handleRowClick = (rowData) => {
     setSelectedRowData(rowData);
@@ -110,6 +123,7 @@ const PrimaryTable = () => {
         contentLabel="Row Details"
         selectedRowData={selectedRowData}
         handleCloseModal={handleCloseModal}
+        selectedCellData={selectedCellData}
       />
     </div>
   );

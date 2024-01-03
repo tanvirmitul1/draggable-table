@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /**
  * eslint-disable react/prop-types
@@ -18,8 +19,14 @@ import Managerdetails from "./modal/ManagerDetails";
 import MonthSelector from "./MonthPicker";
 import CloseButton from "./modal/CloseButton";
 
-const Modal = ({ isOpen, onRequestClose, contentLabel, selectedRowData, handleCloseModal }) => {
-  console.log(selectedRowData);
+const Modal = ({
+  isOpen,
+  onRequestClose,
+  contentLabel,
+  selectedRowData,
+  handleCloseModal,
+  selectedCellData,
+}) => {
   return (
     <ReactModal
       style={{
@@ -45,6 +52,7 @@ const Modal = ({ isOpen, onRequestClose, contentLabel, selectedRowData, handleCl
       {selectedRowData && (
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div style={{ margin: "0 auto" }}>
+            {console.log("rowdata", selectedRowData)}
             <Header selectedRowData={selectedRowData} />
           </div>
           <div>
