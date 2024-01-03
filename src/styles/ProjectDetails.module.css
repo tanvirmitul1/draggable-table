@@ -2,10 +2,12 @@
   display: flex;
   flex-wrap: wrap;
 
+
 }
 
 .projectDetailItem {
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -18,6 +20,13 @@
   flex: 5 5 20%;
   max-width: 250px;
   height: 65px;
+  background-color: rgb(243, 247, 250);
+  transition: background-color 0.3s ease;
+}
+
+.projectDetailItem:hover {
+  background-color: #f1eded;
+  /* Change the background color on hover */
 }
 
 .projectDetailLabel {
@@ -26,7 +35,10 @@
   margin-right: 10px;
 }
 
-.projectDetailValue {}
+.projectDetailValue {
+  font-weight: bold;
+  color: red;
+}
 
 .test {
   background-color: red;
@@ -34,6 +46,6 @@
 
 .activeItem {
   background-color: #3498db;
-  color: #ffffff;
+  color: #000000;
 
 }

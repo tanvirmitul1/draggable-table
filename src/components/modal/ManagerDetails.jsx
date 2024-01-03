@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "../../styles/ProjectDetails.module.css";
 const Managerdetails = ({ selectedRowData }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const projectDetails = [
     { label: "NO OF PROJECT", value: selectedRowData.numberOfProjects },
     { label: "TOTAL PROJECT VALUE", value: selectedRowData.totalProjectValue },
