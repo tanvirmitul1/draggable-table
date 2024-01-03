@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import styles from "../styles/DatePicker.module.css";
 const MonthSelector = () => {
   const [startDate, setStartDate] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState("");
@@ -24,7 +24,9 @@ const MonthSelector = () => {
       const endMonth = nextMonth.toLocaleString("en-US", { month: "long" });
       const year = date.getFullYear();
 
-      setSelectedMonth(` 16 ${startMonth} ${year} to 16 ${endMonth} ${year}`);
+      setSelectedMonth(
+        ` ${startMonth} 15, ${year} to  ${endMonth} 15 , ${year}`
+      );
     } else {
       setSelectedMonth("");
     }
@@ -53,6 +55,7 @@ const MonthSelector = () => {
       >
         Show Month
       </button>
+
       {startDate && (
         <DatePicker
           selected={startDate}
@@ -60,9 +63,21 @@ const MonthSelector = () => {
           showMonthYearPicker
           dateFormat="MM/yyyy"
           popperPlacement="top"
+          className={styles.customDatepicker}
         />
       )}
-      {selectedMonth && <div>{selectedMonth}</div>}
+      {selectedMonth && (
+        <div
+          style={{
+            marginTop: "10px",
+            fontSize: "18px",
+            fontWeight: "bold",
+            color: "#1f5a60",
+          }}
+        >
+          {selectedMonth}
+        </div>
+      )}
     </div>
   );
 };
