@@ -26,7 +26,7 @@ const MonthSelector = () => {
       const year = date.getFullYear();
 
       setSelectedMonth(
-        ` ${startMonth} 15, ${year} to  ${endMonth} 15 , ${year}`
+        ` ${startMonth} 16, ${year} to  ${endMonth} 15 , ${year}`
       );
 
       setShowCalendar(false);
@@ -62,7 +62,7 @@ const MonthSelector = () => {
           border: `1px solid ${hovered ? "#387E85" : "none"}`,
           outline: "none",
           borderRadius: "5px",
-          height: "40px", // Set a fixed height for the button
+          height: "40px",
           transition: "background-color 0.3s ease-in",
         }}
       >
