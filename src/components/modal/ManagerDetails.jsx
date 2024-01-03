@@ -1,48 +1,52 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import styles from "../../styles/ProjectDetails.module.css";
+const Managerdetails = ({ selectedRowData }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const projectDetails = [
+    { label: "NO OF PROJECT", value: selectedRowData.numberOfProjects },
+    { label: "TOTAL PROJECT VALUE", value: selectedRowData.totalProjectValue },
+    {
+      label: "PROJECT COMPLETION RATE",
+      value: selectedRowData.projectCompletionRate,
+    },
+    {
+      label: "TOTAL RELEASED AMOUNT",
+      value: selectedRowData.totalReleasedAmount,
+    },
+    {
+      label: "MILESTONE COMPLETION RATE",
+      value: selectedRowData.milestoneCompletionRate,
+    },
+    {
+      label: "AVERAGE PROJECT COMPLETION TIME",
+      value: selectedRowData.averageProjectCompletionTime,
+    },
+    { label: "CANCELATION RATE", value: selectedRowData.cancelationRate },
+    { label: "CANCELED PROJECTS", value: selectedRowData.canceledProjects },
+    { label: "DELAYED COMPLETED", value: selectedRowData.delayedCompleted },
+    { label: "DELAYED PROJECTS", value: selectedRowData.delayedProjects },
+  ];
 
-const Managerdetails = ({selectedRowData}) => {
- 
+  const handleClick = (index) => {
+    setActiveIndex(index);
+  };
   return (
-    <div>
-          
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-              {Object.entries(selectedRowData).map(([key, value]) => (
-                  <div key={key} style={{ marginRight: '10px', marginBottom: '10px' }}>
-                      {key !== "projectsDetails" ? (
-                          <div
-                             
-                              style={{
-                                  padding: '10px',
-                                  fontSize: '18px',
-                                  backgroundColor:'#387E85',
-                                  color:'white',
-                                  cursor: 'pointer',
-                                
-                                  outline: "none",
-                                  border: "none",
-                                  width: '180px',
-                                  height: '100px',
-                                  transition: 'background-color 0.3s ease-in',
-                                  display: 'flex',
-                                  flexDirection: 'column',
-                                 
-                                  
-                                 
-
-
-                              }}
-                          
-                          >
-                              <span style={{ wordWrap: "break-word",  }}>{`${key}:`}</span>
-                              <span style={{margin:"0 auto", fontSize:"20px"}} >{`${value}`}</span>
-                              
-                          </div>
-                      ) : null}
-                  </div>
-              ))}
-          </div>
+    <div className={styles.projectDetailsContainer}>
+      {projectDetails.map((detail, index) => (
+        <div
+          onClick={() => handleClick(index)}
+          className={`${styles.projectDetailItem}
+    ${activeIndex === index ? styles.activeItem : ""}`}
+          key={index}
+        >
+          <span className={styles.projectDetailLabel}>{detail.label}</span>
+          <span className={styles.projectDetailValue}>{detail.value}</span>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Managerdetails
+export default Managerdetails;

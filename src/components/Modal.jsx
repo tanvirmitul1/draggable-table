@@ -10,20 +10,15 @@
  *
  * @format
  */
-import { IoMdClose } from "react-icons/io";
+
 import ReactModal from "react-modal";
 import SecondaryTable from "./modal/SecondaryTable";
 import Header from "./modal/Header";
 import Managerdetails from "./modal/ManagerDetails";
 import MonthSelector from "./MonthPicker";
+import CloseButton from "./modal/CloseButton";
 
-const Modal = ({
-  isOpen,
-  onRequestClose,
-  contentLabel,
-  selectedRowData,
-  handleCloseModal,
-}) => {
+const Modal = ({ isOpen, onRequestClose, contentLabel, selectedRowData, handleCloseModal }) => {
   console.log(selectedRowData);
   return (
     <ReactModal
@@ -45,24 +40,15 @@ const Modal = ({
       }}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel={contentLabel}>
+      contentLabel={contentLabel}
+    >
       {selectedRowData && (
-        <div style={{ display: "flex", flexDirection: "column", gap:"20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div style={{ margin: "0 auto" }}>
             <Header selectedRowData={selectedRowData} />
           </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "15px",
-              top: "15px",
-              backgroundColor: "#387E85",
-              padding: "6px 6px 2px 6px",
-              cursor: "pointer",
-            }}>
-            <div onClick={handleCloseModal}>
-              <IoMdClose color='white' />
-            </div>
+          <div>
+            <CloseButton handleCloseModal={handleCloseModal} />
           </div>
 
           <div>

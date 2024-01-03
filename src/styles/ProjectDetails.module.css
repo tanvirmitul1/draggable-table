@@ -1,0 +1,38 @@
+.projectDetailsContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.projectDetailItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  word-wrap: break-word;
+  flex: 5 5 20%;
+  max-width: 250px;
+}
+
+.projectDetailLabel {
+  font-weight: bold;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.projectDetailValue {}
+
+.test {
+  background-color: red;
+}
+
+.activeItem {
+  background-color: #3498db;
+  color: #ffffff;
+
+}
