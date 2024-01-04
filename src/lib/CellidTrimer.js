@@ -1,6 +1,6 @@
-export function CellTrimmer(variableName) {
-  if (typeof variableName === "string" && variableName.length >= 2) {
-    return variableName.slice(2);
+export function CellTrimmer(cellKey) {
+  if (typeof cellKey === "string" && cellKey.length >= 2) {
+    return cellKey.slice(2);
   } else {
     return "Invalid input";
   }
