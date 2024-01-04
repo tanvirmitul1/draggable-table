@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useMemo, useState } from "react";
 import {
@@ -16,39 +17,110 @@ const PrimaryTable = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: "numberOfProjects",
-        header: "No. of Project",
-        enableHiding: true,
-      },
-      {
         accessorKey: "projectManager",
         header: "Project Manager",
       },
       {
+        accessorKey: "numberOfProjects",
+        header: "No. of Project",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.numberOfProjects}
+          </a>
+        ),
+      },
+
+      {
         accessorKey: "totalProjectValue",
         header: "Total Project Value",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.totalProjectValue}
+          </a>
+        ),
       },
       {
         accessorKey: "totalReleasedAmount",
         header: "Total Released Amount",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.totalReleasedAmount}
+          </a>
+        ),
+      },
+      {
+        accessorKey: "numberOfFullyCompletedProjects",
+        header: "No. of Fully Completed Project",
       },
       {
         accessorKey: "milestoneCompletionRate",
         header: "MILESTONE COMPLETION RATE",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.milestoneCompletionRate}
+          </a>
+        ),
       },
       {
         accessorKey: "averageProjectCompletionTime",
         header: "AVERAGE PROJECT COMPLETION TIME",
-      },
-
-      {
-        accessorKey: "numberOfFullyCompletedProjects",
-        header: "No. of Fully Completed Project",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.averageProjectCompletionTime}
+          </a>
+        ),
       },
 
       {
         accessorKey: "projectCompletionRate",
         header: "Project Completion Rate",
+        Cell: ({ cell }) => (
+          <a
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              fontSize: "16px",
+            }}
+          >
+            {cell.row.original.projectCompletionRate}
+          </a>
+        ),
       },
     ],
     []
