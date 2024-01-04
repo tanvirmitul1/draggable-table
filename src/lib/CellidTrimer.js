@@ -10,16 +10,18 @@ export const getIndexOfTrimCellId = (trimCellId) => {
   switch (trimCellId) {
     case "numberOfProjects":
       return 0;
+    case "projectManager":
+      return 0;
     case "totalProjectValue":
-      return 1;
-    case "projectCompletionRate":
       return 2;
-    case "totalReleasedAmount":
+    case "projectCompletionRate":
       return 3;
-    case "milestoneCompletionRate":
+    case "totalReleasedAmount":
       return 4;
-    case "averageProjectCompletionTime":
+    case "milestoneCompletionRate":
       return 5;
+    case "averageProjectCompletionTime":
+      return 6;
 
     default:
       return 0;

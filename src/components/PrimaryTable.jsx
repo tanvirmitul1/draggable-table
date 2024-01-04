@@ -21,6 +21,10 @@ const PrimaryTable = () => {
         enableHiding: true,
       },
       {
+        accessorKey: "projectManager",
+        header: "Project Manager",
+      },
+      {
         accessorKey: "totalProjectValue",
         header: "Total Project Value",
       },
@@ -35,10 +39,6 @@ const PrimaryTable = () => {
       {
         accessorKey: "averageProjectCompletionTime",
         header: "AVERAGE PROJECT COMPLETION TIME",
-      },
-      {
-        accessorKey: "projectManager",
-        header: "Project Manager",
       },
 
       {
