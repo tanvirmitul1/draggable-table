@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useMemo, useState } from "react";
 import {
   MaterialReactTable,
@@ -20,10 +21,6 @@ const PrimaryTable = () => {
         enableHiding: true,
       },
       {
-        accessorKey: "projectManager",
-        header: "Project Manager",
-      },
-      {
         accessorKey: "totalProjectValue",
         header: "Total Project Value",
       },
@@ -31,6 +28,19 @@ const PrimaryTable = () => {
         accessorKey: "totalReleasedAmount",
         header: "Total Released Amount",
       },
+      {
+        accessorKey: "milestoneCompletionRate",
+        header: "MILESTONE COMPLETION RATE",
+      },
+      {
+        accessorKey: "averageProjectCompletionTime",
+        header: "AVERAGE PROJECT COMPLETION TIME",
+      },
+      {
+        accessorKey: "projectManager",
+        header: "Project Manager",
+      },
+
       {
         accessorKey: "numberOfFullyCompletedProjects",
         header: "No. of Fully Completed Project",
@@ -90,8 +100,8 @@ const PrimaryTable = () => {
       },
     },
 
-    muiTableBodyCellProps: ({ row }) => ({
-      onClick: () => handleCellClick(row.original),
+    muiTableBodyCellProps: ({ cell, column, row, table }) => ({
+      onClick: () => handleCellClick(cell),
       sx: {
         cursor: "pointer",
       },

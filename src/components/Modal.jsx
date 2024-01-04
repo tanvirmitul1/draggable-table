@@ -49,10 +49,9 @@ const Modal = ({
       onRequestClose={onRequestClose}
       contentLabel={contentLabel}
     >
-      {selectedRowData && (
+      {selectedRowData && selectedCellData && (
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div style={{ margin: "0 auto" }}>
-            {console.log("rowdata", selectedRowData)}
             <Header selectedRowData={selectedRowData} />
           </div>
           <div>
@@ -60,7 +59,10 @@ const Modal = ({
           </div>
 
           <div>
-            <Managerdetails selectedRowData={selectedRowData} />
+            <Managerdetails
+              selectedRowData={selectedRowData}
+              selectedCellData={selectedCellData}
+            />
           </div>
 
           <div>

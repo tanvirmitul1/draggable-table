@@ -11,8 +11,6 @@ import {
 } from "material-react-table";
 import { useMemo } from "react";
 const SecondaryTable = ({ selectedRowData }) => {
-  console.log("project details", selectedRowData.projectsDetails);
-
   const projectDetails = selectedRowData.projectsDetails;
   const columns = useMemo(
     () => [

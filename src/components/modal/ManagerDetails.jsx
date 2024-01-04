@@ -1,9 +1,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+
 import styles from "../../styles/ProjectDetails.module.css";
-const Managerdetails = ({ selectedRowData }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+import { CellTrimmer, getIndexOfTrimCellId } from "../../lib/CellIdTrimer";
+const Managerdetails = ({ selectedRowData, selectedCellData }) => {
+  const trimCellId = CellTrimmer(selectedCellData.id);
+  const trimCellIdIndex = getIndexOfTrimCellId(trimCellId);
+  const [activeIndex, setActiveIndex] = useState(trimCellIdIndex);
+  console.log(
+    "trimCellIdIndex",
+    trimCellIdIndex,
+    "          activeindex",
+    activeIndex
+  );
   const projectDetails = [
     { label: "NO OF PROJECT", value: selectedRowData.numberOfProjects },
     { label: "TOTAL PROJECT VALUE", value: selectedRowData.totalProjectValue },
@@ -32,20 +42,24 @@ const Managerdetails = ({ selectedRowData }) => {
   const handleClick = (index) => {
     setActiveIndex(index);
   };
+
   return (
-    <div className={styles.projectDetailsContainer}>
-      {projectDetails.map((detail, index) => (
-        <div
-          onClick={() => handleClick(index)}
-          className={`${styles.projectDetailItem}
-    ${activeIndex === index ? styles.activeItem : ""}`}
-          key={index}
-        >
-          <span className={styles.projectDetailLabel}>{detail.label}</span>
-          <span className={styles.projectDetailValue}>{detail.value}</span>
-        </div>
-      ))}
-    </div>
+    selectedCellData.id && (
+      <div className={styles.projectDetailsContainer}>
+        {projectDetails.map((detail, index) => (
+          <div
+            onClick={() => handleClick(index)}
+            className={`${styles.projectDetailItem} ${
+              activeIndex === index ? styles.activeItem : ""
+            }`}
+            key={index}
+          >
+            <span className={styles.projectDetailLabel}>{detail.label}</span>
+            <span className={styles.projectDetailValue}>{detail.value}</span>
+          </div>
+        ))}
+      </div>
+    )
   );
 };
 
