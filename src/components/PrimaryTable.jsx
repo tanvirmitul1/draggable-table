@@ -45,19 +45,10 @@ const PrimaryTable = () => {
         accessorKey: "numberOfFullyCompletedProjects",
         header: "No. of Fully Completed Project",
       },
-      /* {
-                accessorKey: 'numberOfCompletedProjectsWithoutAuthorization',
-                header: 'No of Completed Projects Without Authorization',
-            },
-            */
 
       {
         accessorKey: "projectCompletionRate",
         header: "Project Completion Rate",
-      },
-      {
-        accessorKey: "projectsDetails",
-        header: "Project Details",
       },
     ],
     []
@@ -66,7 +57,7 @@ const PrimaryTable = () => {
   const table = useMaterialReactTable({
     columns,
     data,
-    initialState: { columnVisibility: { projectsDetails: false } },
+
     enableColumnOrdering: true,
     enableColumnActions: false,
     enableDensityToggle: false,
@@ -130,7 +121,6 @@ const PrimaryTable = () => {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
-        contentLabel="Row Details"
         selectedRowData={selectedRowData}
         handleCloseModal={handleCloseModal}
         selectedCellData={selectedCellData}

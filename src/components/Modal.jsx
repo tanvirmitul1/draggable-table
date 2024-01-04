@@ -22,7 +22,7 @@ import CloseButton from "./modal/CloseButton";
 const Modal = ({
   isOpen,
   onRequestClose,
-  contentLabel,
+
   selectedRowData,
   handleCloseModal,
   selectedCellData,
@@ -47,7 +47,6 @@ const Modal = ({
       }}
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel={contentLabel}
     >
       {selectedRowData && selectedCellData && (
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
