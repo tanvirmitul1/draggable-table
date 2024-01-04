@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import styles from "../../styles/ProjectDetails.module.css";
-import { CellTrimmer, getIndexOfTrimCellId } from "../../lib/CellIdTrimer";
+import { CellTrimmer, getIndexOfTrimCellId } from "../../lib/CellidTrimer";
 const Managerdetails = ({ selectedRowData, selectedCellData }) => {
   const trimCellId = CellTrimmer(selectedCellData.id);
   const trimCellIdIndex = getIndexOfTrimCellId(trimCellId);
@@ -44,7 +44,7 @@ const Managerdetails = ({ selectedRowData, selectedCellData }) => {
   };
 
   return (
-    selectedCellData.id && (
+    selectedCellData && (
       <div className={styles.projectDetailsContainer}>
         {projectDetails.map((detail, index) => (
           <div
