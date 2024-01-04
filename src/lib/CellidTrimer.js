@@ -13,15 +13,15 @@ export const getIndexOfTrimCellId = (trimCellId) => {
     case "projectManager":
       return 0;
     case "totalProjectValue":
-      return 2;
+      return 1;
     case "projectCompletionRate":
-      return 3;
+      return 2;
     case "totalReleasedAmount":
-      return 4;
+      return 3;
     case "milestoneCompletionRate":
-      return 5;
+      return 4;
     case "averageProjectCompletionTime":
-      return 6;
+      return 5;
 
     default:
       return 0;
