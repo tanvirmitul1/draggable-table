@@ -1,3 +1,14 @@
+
+live site:
+
+https://draggable-table-tanvir-mitul.netlify.app/
+
+
+
+
+
+
+
 No. of Project(Minimum Ideal 18)  , Project Manager , Total Project Value(Minimum Ideal 8000 USD), Total Released Amount , No. of Fully Completed Project , No of Completed Projects Without Authorization , Project Completioon Rate(Minimum Ideal 85%) , Project Completion Rate (Without Authorization) , No. of First Time CLients , Milestone Completion Rate ,Task Completion Rate,Average Project Completion Time , No. of Upsale/Cross Sales, Value of Upsale/Cross Sales,Canceled Projects,Delayed Projects,Delayed Completed,Percentage of br Delayed Projects,Cancelation Rate,Avg. Payment Rel. Time
 
 
